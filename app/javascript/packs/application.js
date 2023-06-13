@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start() // ※高速化Gem。HTML要素だけ読み込む。イベントの不発を防ぐ為に削除。
 require("@rails/activestorage").start()
 require("channels")
 
