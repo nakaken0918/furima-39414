@@ -24,7 +24,11 @@
 | ------------------ | ---------- | ------------------------------ |
 | item               | string     | null: false                    |
 | explain            | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
 | delivery_id        | integer    | null: false                    |
+| province_id        | integer    | null: false                    |
+| start_id           | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
@@ -40,8 +44,8 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| zip_code           | integer    | null: false                    |
-| province           | integer    | null: false                    |
+| zip_code           | string     | null: false                    |
+| province_id        | integer    | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building           | string     |                                |
@@ -49,8 +53,7 @@
 | record             | references | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :item
-- has_many :records
+- belong_to :record
 
 
 ## records table
@@ -63,5 +66,5 @@
 ## Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :order
+- has_many :orders
 
