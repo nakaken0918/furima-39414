@@ -52,7 +52,7 @@
 | record             | references | null: false, foreign_key: true |
 
 ## Association
-- has_one :record
+- belongs_to :record
 
 
 ## records table
@@ -65,5 +65,5 @@
 ## Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :order
+- has_one :order
 
