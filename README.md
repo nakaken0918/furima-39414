@@ -46,7 +46,7 @@
   # price（string(300~9,999,999),
 
   ## 出品者情報 ##
-  # user（references,外部キー
+  # user（references, foreign_key
 
 ## orders table（商品購入に必要な情報）##
 
@@ -69,4 +69,13 @@
   # telephone（string（「-」無しの11桁
 
   ## 商品の情報 ##
-  # item（reference,外部キー
+  # item（reference, foreign_key
+
+
+## Association ##
+
+## users table
+#    has_many :items
+
+## orders table
+#    has_many :items
