@@ -23,6 +23,7 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
+| image              |            | null: false                    |
 | goods              | text       | null: false                    |
 | explain            | text       | null: false                    |
 | category           | select     |                                |
