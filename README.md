@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :records
+- has_many :orders
 
 
 ## items table
@@ -34,28 +34,12 @@
 
 ### Association
 - belongs_to :user
-- has_one :record
+- has_one :order
 
 - has_one_attached :image
 
 
 ## orders table
-
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| zip_code           | string     | null: false                    |
-| province_id        | integer    | null: false                    |
-| city               | string     | null: false                    |
-| house_number       | string     | null: false                    |
-| building           | string     |                                |
-| telephone          | string     | null: false                    |
-| record             | references | null: false, foreign_key: true |
-
-## Association
-- belongs_to :record
-
-
-## records table
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -65,5 +49,21 @@
 ## Association
 - belongs_to :user
 - belongs_to :item
-- has_one :order
+- has_one :address
+
+
+## address table
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| zip_code           | string     | null: false                    |
+| province_id        | integer    | null: false                    |
+| city               | string     | null: false                    |
+| house_number       | string     | null: false                    |
+| building           | string     |                                |
+| telephone          | string     | null: false                    |
+| order              | references | null: false, foreign_key: true |
+
+## Association
+- belongs_to :order
 
