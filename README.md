@@ -2,58 +2,66 @@
 
 ## users table
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| name               | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| name_first         | string | null: false               |
-| name_family        | string | null: false               |
-| name_first_kana    | string | null: false               |
-| name_family_kana   | string | null: false               |
-| birth_year         | select |                           |
-| birth_month        | select |                           |
-| birth_day          | select |                           |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| name               | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| name_first         | string  | null: false               |
+| name_family        | string  | null: false               |
+| name_first_kana    | string  | null: false               |
+| name_family_kana   | string  | null: false               |
+| birth              | date    | null: false               |
 
 ### Association
 - has_many :items
+- has_many :records
 
 
 ## items table
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| image              |            | null: false                    |
-| goods              | text       | null: false                    |
+| item               | string     | null: false                    |
 | explain            | text       | null: false                    |
-| category           | select     |                                |
-| condition          | select     |                                |
-| shipping           | select     |                                |
-| shipping_region    | select     |                                |
-| shipping_date      | select     |                                |
-| price              | string     | null: false                    |
+| delivery_id        | integer    | null: false                    |
+| price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
+- has_one :order
+- has_many :records
+
 - has_one_attached :image
-- has_one_attached :order
 
 
-## order table
+## orders table
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| card_number        | string     | null: false                    |
-| card_date          | string     | null: false                    |
-| card_code          | string     | null: false                    |
-| zip_code           | string     | null: false                    |
-| province           | select     |                                |
+| zip_code           | integer    | null: false                    |
+| province           | integer    | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building           | string     |                                |
-| telephone          | string     | null: false                    |
-| item               | references | null: false, foreign_key: true |
+| telephone          | integer    | null: false                    |
+| record             | references | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :items
+- belongs_to :item
+- has_many :records
+
+
+## records table
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | integer    | null: false, foreign_key: true |
+| item               | integer    | null: false, foreign_key: true |
+
+## Association
+- belongs_to :user
+- belongs_to :item
+- belongs_to :order
+
