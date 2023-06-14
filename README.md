@@ -34,8 +34,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :order
-- has_many :records
+- has_one :record
 
 - has_one_attached :image
 
@@ -49,22 +48,22 @@
 | city               | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building           | string     |                                |
-| telephone          | integer    | null: false                    |
+| telephone          | string     | null: false                    |
 | record             | references | null: false, foreign_key: true |
 
 ## Association
-- belong_to :record
+- has_one :record
 
 
 ## records table
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user               | integer    | null: false, foreign_key: true |
-| item               | integer    | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :user
 - belongs_to :item
-- has_many :orders
+- belongs_to :order
 
