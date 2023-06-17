@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # FactoryBotの導入。
+
   before do
     @user = FactoryBot.build(:user)
   end
-  # describe ...テストコードの説明。
+  
   describe "ユーザー新規登録" do
 
     context "ユーザー登録できる" do
