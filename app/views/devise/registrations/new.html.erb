@@ -56,7 +56,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_area :family_name, class:"input-name", id:"last-name", placeholder:"例) 山田" %>
+      <%= f.text_area :last_name, class:"input-name", id:"last-name", placeholder:"例) 山田" %>
       <%= f.text_area :first_name, class:"input-name", id:"first-name", placeholder:"例) 陸太郎" %>
     </div>
   </div>
@@ -66,7 +66,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_area :family_name_kana, class:"input-name", id:"last-name-kana", placeholder:"例) ヤマダ" %>
+      <%= f.text_area :last_name_kana, class:"input-name", id:"last-name-kana", placeholder:"例) ヤマダ" %>
       <%= f.text_area :first_name_kana, class:"input-name", id:"first-name-kana", placeholder:"例) リクタロウ" %>
     </div>
   </div>
@@ -78,7 +78,7 @@
     <div class='input-birth-wrap'>
       <%= raw sprintf(
                   f.date_select(
-                    :birth,
+                    :birth_date,
                     class:'select-birth',
                     id:"birth-date",
                     use_month_numbers: true,
