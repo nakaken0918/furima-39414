@@ -1,4 +1,4 @@
-class Scheduled_delivery < ActiveHash::Base
+class ScheduledDelivery < ActiveHash::Base
   
   self.data = [
     { id: 1, name: '---' },
@@ -9,5 +9,6 @@ class Scheduled_delivery < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :articles
+  has_many :items
   
 end
