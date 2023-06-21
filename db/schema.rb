@@ -33,16 +33,6 @@ ActiveRecord::Schema.define(version: 2023_06_19_025922) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "sales_status_id", null: false
-    t.integer "shipping_fee_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "scheduled_delivery_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "info", null: false

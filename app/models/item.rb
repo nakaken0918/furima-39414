@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :scheduled_delivery
 
-  has_one_attached :articles
   belongs_to :user
   
   validates :name, :info, :price, presence: true
