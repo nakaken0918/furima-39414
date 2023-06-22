@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def update
     
-    if @item.update(item_params) && @item.previous_changes.present?
+    if @item.update(item_params)
       redirect_to item_path(@item)
     else
       render :edit
