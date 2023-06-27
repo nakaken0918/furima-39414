@@ -73,7 +73,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "価格が半角数値でない" do
-        @item = FactoryBot.build(:item, price: "１０００")
+        @item.price = "１０００"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
