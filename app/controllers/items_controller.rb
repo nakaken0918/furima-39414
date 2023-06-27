@@ -56,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def set_user
-    redirect_to root_path unless current_user == User.find_by(id: @item.user_id)
+    redirect_to root_path unless current_user == User.find_by(id: @item.user_id) && !Order.exists?(item_id: @item.id)
   end
 
 end
