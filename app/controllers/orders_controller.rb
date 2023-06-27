@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
   end
 
   def set_user
-    redirect_to root_path if current_user == User.find_by(id: @item.user_id) && Order.exists?(item_id: @item.id)
+    redirect_to root_path if current_user.id == @item.user_id
   end
 
 end
