@@ -3,7 +3,6 @@ window.addEventListener('load', () => {
 
   priceInput.addEventListener("input", () => {
 
-    const priceInput = document.getElementById("item-price");
     const inputValue = priceInput.value;
 
     const addTaxDom = document.getElementById("add-tax-price");

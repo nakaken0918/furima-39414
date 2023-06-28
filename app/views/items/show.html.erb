@@ -9,8 +9,8 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# orderにitem.idが記録されたらsold outを表示する %>
-      <%# if Order.exists?(item_id: @item.id) %>
-      <%#div class="sold-out">
+      <% if Order.exists?(item_id: @item.id) %>
+      <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
       <% end %>
@@ -27,7 +27,7 @@
 
     <%# ログインしていて、出品者本人である場合かつ、Sold Outしていない場合に表示 %>
     <% if user_signed_in? %>
-      <%# unless Order.exists?(item_id: @item.id) %>
+      <% unless Order.exists?(item_id: @item.id) %>
         <% if current_user == @item.user %>
           <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
           <p class="or-text">or</p>
@@ -35,10 +35,10 @@
         
         <% else %>
           <%# 出品者本人でない場合に表示 %>
-          <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+          <%= link_to "購入画面に進む", item_orders_path(@item) ,class:"item-red-btn"%>
 
         <% end %>
-      <%# end %>
+      <% end %>
     <% end %>
 
     <div class="item-explain-box">
