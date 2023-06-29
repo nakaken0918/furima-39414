@@ -48,7 +48,7 @@ RSpec.describe OrderAddress, type: :model do
       it "都道府県が選択されていない" do
         @order_address.prefecture_id = 1
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("都道府県を入力してください")
+        expect(@order_address.errors.full_messages).to include("都道府県を選択してください")
       end
   
       it "市区町村が空欄である" do

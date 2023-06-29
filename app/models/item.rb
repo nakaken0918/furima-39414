@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   has_one :order
   
   validates :name, :info, :price, presence: true
-  validates :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, numericality: { other_than: 1 , message: "を入力してください"}
+  validates :category_id, :sales_status_id, :shipping_fee_status_id, :prefecture_id, :scheduled_delivery_id, numericality: { other_than: 1 , message: "を選択してください"}
   validates :price, format: { with: /\A[0-9]+\z/, message: "は半角数値を入力してください"}
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "の設定が範囲外です"}
   
